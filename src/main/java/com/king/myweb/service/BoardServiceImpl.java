@@ -53,4 +53,17 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.listSearch(scri);
 	}
 
+	// 7. 글 수정  업데이트만 진행 후 마치므로 void 로 설정 
+	@Override
+	public void update(BoardVO boardVO) throws Exception {
+		boardDAO.update(boardVO);
+		
+	}
+	
+	// 8. 글 삭제 delete
+	@Override
+	public void delete(int bno) throws Exception {
+		boardDAO.delete(bno);
+	}
+
 }

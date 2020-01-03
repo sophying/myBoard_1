@@ -68,7 +68,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="searchType == 'tc'.toString()">where (title like '%'|| #{keyword}||'%')or (content like '%' || #{keyword} || '%')</if>
 		</if>
 	</sql>
+
+<!--  7. 글 수정 modify -->	
+	<update id="update">
+		update MYBOARD
+		set TITLE =#{title}, CONTENT=#{content}
+		where BNO=#{bno}
+	</update>
 	
-	
-	
+<!--  8. 글 삭제 delete -->
+	<delete id="delete">
+		delete
+		from MYBOARD
+		where BNO=#{bno}
+	</delete>	
 </mapper>

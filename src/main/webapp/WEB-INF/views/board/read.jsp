@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Read</title>
 <!-- 제이쿼리 -->
-<script src="../js/jquery.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 합쳐지고 최소화된 최신  css -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
@@ -29,57 +29,58 @@
 			<%@include file="include/nav.jsp"%>
 		</nav>
 		<section>
-			<form role="form" method="post" autocomplete="off">
-				<input type="hidden" id="page" name="page" value="${scri.page}"
-					readonly="readonly" /> <input type="hidden" id="perPageNum"
-					name="perPageNum" value="${scri.perPageNum}" readonly="readonly" />
-				<input type="hidden" id="searchType" name="searchType"
-					value="${scri.searchType}" readonly="readonly" /> <input
-					type="hidden" id="keyword" name="keyword" value="${scri.keyword}"
-					readonly="readonly" />
+			<form role="form" method="post" autocomplete="off"> <!-- SearchCriteria scri 객체 값을 가져오는 역할  -->
+				<input type="hidden" id="page" name="page" value="${scri.page}"	readonly="readonly" /> 
+				<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}" readonly="readonly" />
+				<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}" readonly="readonly" /> 
+				<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}" readonly="readonly" />
 
 				<div class="form-group">
 					<label for="bno" class="col-sm-2 control-label">글 번호</label>
 					<div class="col-sm-10">
-						<input type="text" id="bno" name="bno" class="form-control"
-							value="${read.bno}" readonly="readonly" />
+						<input type="text" id="bno" name="bno" class="form-control"	value="${read.bno}" readonly="readonly" />
 					</div>
 				</div>
 			</form>
 			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">글 제목</label>
 				<div class="col-sm-10">
-					<input type="text" id="title" name="title" class="form-control"
-						value="${read.title}" readonly="readonly" />
+					<input type="text" id="title" name="title" class="form-control" value="${read.title}" readonly="readonly" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="content" class="col-sm-2 control-label">글 내용</label>
 				<div class="col-sm-10">
-					<textarea id="content" name="content" class="form-control"
-						readonly="readonly">${read.content}</textarea>
+					<textarea id="content" name="content" class="form-control" readonly="readonly">${read.content}</textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="writer" class="col-sm-2 control-label">작성자</label>
 				<div class="col-sm-10">
-					<input type="text" id="writer" name="writer" class="form-control"
-						value="${read.writer}" readonly="readonly" />
+					<input type="text" id="writer" name="writer" class="form-control" value="${read.writer}" readonly="readonly" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">작성 날짜</label>
 				<div class="col-sm-10">
-					<span><fmt:formatDate value="${read.regDate}"
-							pattern="yyyy-MM-dd" /></span>
+					<span><fmt:formatDate value="${read.regDate}" pattern="yyyy-MM-dd" /></span>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<button type="button" id="list_btn" class="btn btn-primary">목록</button>
-				<button type="button" id="mpdify_btn" class="btn btn-warning">수정</button>
+				<button type="button" id="modify_btn" class="btn btn-warning">수정</button>
 				<button type="button" id="delete_btn" class="btn btn-danger">삭제</button>
 				<script type="text/javascript">
+				
+				
+				var bno = document.getElementById('title').value;
+				var content =  document.getElementById('content').value;
+				var writer =  document.getElementById('writer').value;
+				
+				console.log(bno);
+				console.log(content);
+				console.log(writer);
 					//폼을 변수에 저장
 					var formObj = $("form[role='form']");
 
@@ -158,14 +159,11 @@
 				<section class="replyForm">
 					<form role="form" method="post" autocomplete="off"
 						class="form-horizontal">
-						<input type="hidden" id="bno" name="bno" value="${read.bno}"
-							readonly="readonly" /> <input type="hidden" id="page" name="page"
-							value="${scri.page}" readonly="readonly" /> <input type="hidden"
-							id="perPageNum" name="perPageNum" value="${scri.perPageNum}"
-							readonly="readonly" /> <input type="hidden" id="searchType"
-							name="searchType" value="${scri.searchType}" readonly="readonly" />
-						<input type="hidden" id="keyword" name="keyword"
-							value="${scri.keyword}" readonly="readonly" />
+						<input type="hidden" id="bno" name="bno" value="${read.bno}" readonly="readonly" /> 
+						<input type="hidden" id="page" name="page" value="${scri.page}" readonly="readonly" /> 
+						<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}" readonly="readonly" /> 
+						<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}" readonly="readonly" />
+						<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}" readonly="readonly" />
 						<div class="form-group">
 							<label for="writer" class="col-sm-2 control-label">작성자</label>
 							<div class="col-sm-10">

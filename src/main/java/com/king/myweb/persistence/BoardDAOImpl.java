@@ -25,6 +25,7 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		sql.insert(namespace+".write", boardVO);
+		System.out.println(boardVO.getContent());
 	}
 
 	// 2. 글 목록 
@@ -55,6 +56,20 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public List<BoardVO> listSearch(SearchCriteria scri) throws Exception {
 		return sql.selectList(namespace+".listSearch", scri);
+	}
+
+	// 7. 글 수정 modify 
+	@Override
+	public void update(BoardVO boardVO) throws Exception {
+		System.out.println(boardVO.getContent());
+		sql.update(namespace+".update", boardVO);
+		
+	}
+
+	// 8. 글 삭제 delete 
+	@Override
+	public void delete(int bno) throws Exception {
+		sql.delete(namespace+".delete", bno) ;
 	}
 	
 

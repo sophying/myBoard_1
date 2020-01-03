@@ -5,14 +5,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.king.myweb.mappers.replyMapper">
 
-<!-- 댓글 조회 -->
+<!--1. 댓글 조회 -->
 	<select id="readReply" resultType="com.king.myweb.domain.ReplyVO">
-		select RNO, CONTENT, WRITER, REGDATE
+ 		select RNO, CONTENT, WRITER, REGDATE
 		from MYREPLY
-		where BNO =#{bno}
+		where BNO =#{bno} 
+		order by bno
+<!-- 		select RNO, CONTENT, WRITER, REGDATE
+		from(
+				select BNO, RNO, CONTENT, WRITER, REGDATE, ROW_NUMBER() OVER(order by RNO asc) as rNum
+				from MYREPLY
+			)mr
+		where BNO =#{bno} -->
 	</select>
-<!-- 댓글 작성 -->
+<!--2. 댓글 작성 -->
 	<insert id="writeReply">
 	   INSERT INTO MYREPLY(BNO,RNO,CONTENT,WRITER) VALUES(#{bno}, myReply_seq.nextval, #{content}, #{writer})
 	</insert>
+	
+<!--3. 댓글 수정 -->
+	<update id="updateReply">
+		update MYREPLY	
+		set CONTENT = #{content}
+		where RNO = #{rno}
+	</update>
+	
+<!--  4. 특정 댓글 조회 -->
+<!-- ReplyVO 타입으로 테이블을 담아 두어 jsp에 뿌림  -->
+	<select id="readReplySelect" resultType="com.king.myweb.domain.ReplyVO">
+		select BNO, RNO, CONTENT, WRITER, REGDATE
+		from MYREPLY
+		where RNO =#{rno}
+	</select>
+
+<!-- 5. 댓글 삭제  -->	
+	<delete id="deleteReply">
+		delete
+		from MYREPLY
+		where RNO = #{rno}
+	</delete>	
 </mapper>

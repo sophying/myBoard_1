@@ -25,4 +25,10 @@ public interface BoardDAO {
 
 	// 6. 글 목록 + 페이징 + 검색
 	public List<BoardVO> listSearch(SearchCriteria scri) throws Exception;
+
+	// 7. 글 수정 modify 
+	public void update(BoardVO boardVO) throws Exception;
+
+	// 8. 글 삭제 delete
+	public void delete(int bno) throws Exception;
 }

@@ -26,7 +26,12 @@ public interface BoardService {
 
 	// 6. 글목록 + 페이징 + 검색
 	public List<BoardVO> listSearch(SearchCriteria scri) throws Exception;
-	
+
+	// 7. 글 수정 modify   한사람의 레코드를 가지고 옴 
+	public void update(BoardVO boardVO) throws Exception;
+
+	// 8. 글 삭제 delete
+	public void delete(int bno) throws Exception;
 	
 	
 	

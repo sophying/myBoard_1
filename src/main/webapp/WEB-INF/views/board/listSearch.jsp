@@ -47,9 +47,7 @@
 				<td>${list.bno}</td>
 				<%-- <td><a href="/board/read?bno=${list.bno}">${list.title}</a></td> --%>
 				<td>
-					<a href="/board/read?bno=${list.bno}&page=${scri.page}&
-							perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&
-							keyword=${scri.keyword}">${list.title}</a>
+					<a href="/board/read?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}">${list.title}</a>
 				</td>
 				<td>${list.writer}</td>
 				<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
@@ -60,11 +58,11 @@
 		<div class="search row">
 			<div class="col-xs-2 col-sm-2">
 				<select name="searchType" class="form-control">
-					<option value="n"<c:out value="${scri.searchType == null ? 'seelcted' :'' }"/>>-------</option>
-					<option value="t"<c:out value="${scri.searchType eq 't' ? 'seelcted' :'' }"/>>제목</option>
-					<option value="c"<c:out value="${scri.searchType eq 'c' ? 'seelcted' :'' }"/>>내용</option>
-					<option value="w"<c:out value="${scri.searchType eq 'w' ? 'seelcted' :'' }"/>>작성자</option>
-					<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'seelcted' :'' }"/>>제목+내용</option>
+					<option value="n"<c:out value="${scri.searchType == null ? 'selected' :'' }"/>>-------</option>
+					<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' :'' }"/>>제목</option>
+					<option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' :'' }"/>>내용</option>
+					<option value="w"<c:out value="${scri.searchType eq 'w' ? 'selected' :'' }"/>>작성자</option>
+					<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' :'' }"/>>제목+내용</option>
 				</select>
 			</div>
 			<div class="col-xs-10 col-sm-10">
